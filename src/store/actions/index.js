@@ -1,2 +1,2 @@
-export { addPlace, deletePlace } from "./places";
+export { addPlace, deletePlace, addUser, getVenues } from "./places";
 export { tryAuth } from './auth';

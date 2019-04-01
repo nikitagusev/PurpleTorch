@@ -8,51 +8,72 @@ const startTabs = () => {
         Icon.getImageSource(Platform.OS === 'android' ? "md-share-alt" : "ios-share", 30),
         Icon.getImageSource(Platform.OS === 'android' ? "md-menu" : "ios-menu", 30)
     ]).then(sources => {
-        Navigation.startTabBasedApp({
-            tabs: [
-                {
-                    screen: "awesome-places.FindPlaceScreen",
-                    label: "Find Place",
-                    title: "Find Place",
-                    icon: sources[0],
-                    navigatorButtons: {
-                        leftButtons: [
-                            {
-                                icon: sources[2],
-                                title: "Menu",
-                                id: "sideDrawerToggle"
-                            }
-                        ]
+        // Start a App
+        Navigation.startSingleScreenApp({
+          screen: {
+            screen: "awesome-places.MapViewScreen",
+            title: "Purple Torch",
+            navigatorButtons: {
+                leftButtons: [
+                    {
+                        icon: sources[2],
+                        title: "Menu",
+                        id: "sideDrawerToggle"
                     }
-                },
-                {
-                    screen: "awesome-places.SharePlaceScreen",
-                    label: "Share Place",
-                    title: "Share Place",
-                    icon: sources[1],
-                    navigatorButtons: {
-                        leftButtons: [
-                            {
-                                icon: sources[2],
-                                title: "Menu",
-                                id: "sideDrawerToggle"
-                            }
-                        ]
-                    }
-                }
-            ],
-            tabsStyle: {
-                tabBarSelectedButtonColor: "orange"
-            },
+                ]
+            }
+          },
             drawer: {
                 left: {
                     screen: "awesome-places.SideDrawer"
                 }
-            },
-            appStyle: {
-                tabBarSelectedButtonColor: "orange"
-            },
+            }
         });
+        // Navigation.startTabBasedApp({
+        //     tabs: [
+        //         {
+        //             screen: "awesome-places.FindPlaceScreen",
+        //             label: "Find Place",
+        //             title: "Find Place",
+        //             icon: sources[0],
+        //             navigatorButtons: {
+        //                 leftButtons: [
+        //                     {
+        //                         icon: sources[2],
+        //                         title: "Menu",
+        //                         id: "sideDrawerToggle"
+        //                     }
+        //                 ]
+        //             }
+        //         },
+        //         {
+        //             screen: "awesome-places.SharePlaceScreen",
+        //             label: "Share Place",
+        //             title: "Share Place",
+        //             icon: sources[1],
+        //             navigatorButtons: {
+        //                 leftButtons: [
+        //                     {
+        //                         icon: sources[2],
+        //                         title: "Menu",
+        //                         id: "sideDrawerToggle"
+        //                     }
+        //                 ]
+        //             }
+        //         }
+        //     ],
+        //     tabsStyle: {
+        //         tabBarSelectedButtonColor: "orange"
+        //     },
+        //     drawer: {
+        //         left: {
+        //             screen: "awesome-places.SideDrawer"
+        //         }
+        //     },
+        //     appStyle: {
+        //         tabBarSelectedButtonColor: "orange"
+        //     },
+        // });
     });
 };
 

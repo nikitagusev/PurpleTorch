@@ -1,10 +1,14 @@
 import {
   ADD_PLACE,
-  DELETE_PLACE
+  DELETE_PLACE,
+  ADD_USER,
+  SET_VENUES
 } from "../actions/actionTypes";
 
 const initialState = {
-  places: []
+  places: [],
+  user: null,
+  venues: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -28,6 +32,25 @@ const reducer = (state = initialState, action) => {
           return place.key !== action.placeKey;
         })
       };
+    case ADD_USER:
+      return {
+        ...state,
+        user: {
+          name: 'nikita',
+          gender: 'male',
+          location: {
+            latitude: action.location.location.latitude,
+            longitude: action.location.location.longitude
+          }
+
+        }
+      };
+    case SET_VENUES:
+      return {
+        ...state,
+        venues: action.venues
+      };
+
     default:
       return state;
   }

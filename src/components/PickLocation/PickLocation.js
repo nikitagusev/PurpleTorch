@@ -40,9 +40,9 @@ class PickLocation extends Component {
   render() {
     let marker = null;
 
-    if (this.state.locationChosen) {
-      marker = <MapView.Marker coordinate={this.state.focusedLocation} />;
-    }
+    // if (this.state.locationChosen) {
+    //   marker = <MapView.Marker coordinate={this.state.focusedLocation} />;
+    // }
 
     return (
       <View style={styles.container}>
@@ -64,12 +64,13 @@ class PickLocation extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     width: "100%",
     alignItems: "center"
   },
   map: {
     width: "100%",
-    height: 250
+    height: "100%"
   },
   button: {
     margin: 8
